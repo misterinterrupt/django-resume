@@ -1,5 +1,4 @@
 import time
-
 from django.db import models 
 
 class Overview(models.Model):
@@ -19,6 +18,7 @@ class PersonalInfo(models.Model):
     region_shorthand = models.CharField(max_length=64, help_text="e.g. shorthand (abbr), MA for Massachusetts")
     email = models.EmailField()
     linkedin = models.URLField(blank=True)
+    github = models.URLField(blank=True)
     
     class Meta:
         verbose_name_plural = "Personal Info"
@@ -120,6 +120,14 @@ class Accomplishment(models.Model):
 
     def __unicode__(self):
         return ''.join([self.job.company, '-', self.description[0:50], '...'])
+
+class Project(models.Model):
+    name = models.CharField(max_length=250)
+    description = models.TextField()
+    repository = models.URLField(blank=True)
+    
+    def __unicode__(self):
+        return self.name
 
 class Skillset(models.Model):
     name = models.CharField(max_length=250)

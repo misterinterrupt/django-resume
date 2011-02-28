@@ -88,13 +88,14 @@ TEMPLATE_DEBUG = DEBUG
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, '/media/')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 ADMIN_MEDIA_ROOT = ''
+RESUME_PROJECTS_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'resume_projects')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),

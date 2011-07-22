@@ -1,3 +1,4 @@
 *.pyc
 resumedb
 media/resume_projects/
+buildout/

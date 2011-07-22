@@ -159,7 +159,7 @@ def get_save_path(instance, filename):
     """
     dynamically generates the save path for a ProjectPic
     """
-    return os.path.join(settings.RESUME_PROJECTS_MEDIA_ROOT, instance.project.name, 'pics', filename)
+    return os.path.join(instance.project.name, 'pics', filename)
 
 class ProjectPic(models.Model):
     project = models.ForeignKey(Project)

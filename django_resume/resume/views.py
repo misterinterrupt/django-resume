@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.contrib.sites.models import RequestSite
 from django.template import RequestContext
 
-from models import Overview, PersonalInfo, Education, Job, Accomplishment, Skillset, Skill
+from models import Overview, PersonalInfo, Education, Job, Accomplishment, Skillset, Skill, Project, ProjectPic
 
 def index(request):
     site_name = RequestSite(request).domain
@@ -12,6 +12,8 @@ def index(request):
     education = Education.objects.all()
     job_list = Job.objects.all()
     skill_sets = Skillset.objects.all()
+    projects = Project.objects.all()
+    project_pics = ProjectPic.objects.all()
 
     return render_to_response('resume/resume.html', {
         'site_name': site_name,
@@ -20,4 +22,6 @@ def index(request):
         'job_list' : job_list,
         'education' : education,
         'skill_sets' : skill_sets,
+        'projects' : projects,
+        'project_pics' : project_pics,
  }, context_instance=RequestContext(request))

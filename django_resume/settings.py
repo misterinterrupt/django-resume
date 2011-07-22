@@ -73,7 +73,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.admin',
+    'django.contrib.admin', 
     'resume',
 )
 
@@ -96,6 +96,7 @@ RESUME_PROJECTS_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'resume_projects')
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = 'media'
+RESUME_PROJECTS_MEDIA_URL = os.path.join(MEDIA_URL, 'resume_projects')
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'templates'),

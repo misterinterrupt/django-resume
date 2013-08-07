@@ -56,6 +56,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -69,9 +70,11 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.admin', 
+    'django.contrib.staticfiles',
+    'django.contrib.admin',
     'resume',
 )
 
@@ -87,7 +90,9 @@ TEMPLATE_DEBUG = DEBUG
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-ADMIN_MEDIA_ROOT = ''
+ADMIN_MEDIA_ROOT = 'admin_media'
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
+STATIC_URL = '/static/'
 RESUME_PROJECTS_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'resume_projects')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -97,6 +102,7 @@ MEDIA_URL = 'media/'
 RESUME_PROJECTS_MEDIA_URL = os.path.join(MEDIA_URL, 'resume_projects')
 
 TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'contrib/admin/templates/admin'),
     os.path.join(PROJECT_ROOT, 'templates'),
 )
 

@@ -17,7 +17,7 @@
   <!-- Personal Contact Information in hCard markup --> 
   {% with personal_info|first as personal_info %}
   <div id="contactinfo" class="vcard"> 
-    <h1 class="fn n" id="name"><a class="url" href="{% if request.is_secure %}https{% else %}http{% endif %}://{{ site_name }}{% url resume_home %}" rel="me"><span class="given-name">{{ personal_info.first_name}}</span> <span class="family-name">{{ personal_info.last_name }}</span></a></h1> 
+    <h1 class="fn n" id="name"><a class="url" href="{% if request.is_secure %}https{% else %}http{% endif %}://{{ site_name }}{% url "resume_home" %}" rel="me"><span class="given-name">{{ personal_info.first_name}}</span> <span class="family-name">{{ personal_info.last_name }}</span></a></h1> 
     <div class="adr"> 
       <span class="locality">{{ personal_info.locality }}</span>, <abbr class="region" title="{{ personal_info.region }}">{{ personal_info.region_shorthand }}</abbr> 
     </div>
@@ -86,29 +86,6 @@
       <div class="summary"> {{ edu.summary }}</div>
      </li>
      {% endfor %}
-    </ul>
-    
-    <h2>Projects</h2>
-    <div id="github-badge"></div>
-    <script type="text/javascript" charset="utf-8">
-      GITHUB_USERNAME="misterinterrupt";
-    </script>
-    <script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
-    <ul id="proj-list">
-      {% for project in projects %}
-      <li class="project">
-        <span class="project-name">{{ project.name }}:&nbsp;</span>
-        <!--script src='http://misterinterrupt.github.com/anything-carousel/.js'></script -->
-        <div class='project-image-carousel'>
-        {% for pic in project_pics %}
-          {% if pic.project.id == project.id %}
-          <img src="{{ pic.pic_file.url }}">
-          {% endif %}
-          {% if not forloop.last %},&nbsp;{% endif %}
-        {% endfor %}
-        </div>
-      </li>
-      {% endfor %}
     </ul>
     
 </section>

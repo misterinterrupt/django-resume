@@ -73,7 +73,7 @@ class Job(models.Model):
     company = models.CharField(max_length=250)
     location = models.CharField(max_length=250)
     title = models.CharField(max_length=250)
-    company_url = models.URLField('Company URL', verify_exists=False)
+    company_url = models.URLField('Company URL', blank=True)
     description = models.TextField(blank=True)
     start_date = models.DateField()
     completion_date = models.DateField()
@@ -176,7 +176,7 @@ class Skillset(models.Model):
 
 class Skill(models.Model):
     name =  models.CharField(max_length=250)
-    skill_url = models.URLField('Skill URL', blank=True, verify_exists=True)
+    skill_url = models.URLField('Skill URL', blank=True)
     skillset = models.ForeignKey(Skillset)
     
     class Meta:

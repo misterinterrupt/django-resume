@@ -25,7 +25,7 @@ DATABASES = {
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Boston'
+TIME_ZONE = 'America/Los_Angeles'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -47,8 +47,8 @@ SECRET_KEY = '+7t5g^t3pua#6_rjjdxz&n*&x_d39u_wfz7@e&po9ehhjbxbti'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 #     'django.template.loaders.eggs.load_template_source',
 )
 
@@ -93,7 +93,7 @@ RESUME_PROJECTS_MEDIA_ROOT = os.path.join(MEDIA_ROOT, 'resume_projects')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = 'media'
+MEDIA_URL = 'media/'
 RESUME_PROJECTS_MEDIA_URL = os.path.join(MEDIA_URL, 'resume_projects')
 
 TEMPLATE_DIRS = (
